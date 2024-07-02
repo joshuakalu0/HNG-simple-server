@@ -4,6 +4,10 @@ const app = express();
 var geoip = require("geoip-lite");
 const port = 3000;
 
+app.get("/", (req, res) => {
+  res.send("server running");
+});
+
 app.get("/api/hello", async (req, res) => {
   const { visitor_name } = req.query;
 
@@ -28,3 +32,5 @@ app.get("/api/hello", async (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
+
+module.exports = app;
