@@ -11,7 +11,26 @@ app.get('/', (req, res) => {
   const ip = req.header('x-forwarded-for') || req.connection.remoteAddress
   res.send(`Hello World your ip is:${ip}`)
 })
+app.get("/api/hello", async (req, res) => {
+  const { visitor_name } = req.query;
 
+  const ip = req.header('x-forwarded-for') || req.connection.remoteAddress
+  const geo = geoip.lookup(test_ip);
+  console.log(geo);
+  api_key = "a4f791ec3190105377dcfdf1cf72f27d";
+  const url = `http://api.openweathermap.org/data/2.5/find?q=${geo.city}&appid=${api_key}`;
+//const response = await axios.get(url);
+  //const { temp } = response.data.list[0].main;
+ // const c = Math.round(Number(temp) - 273.15);
+const c =11
+  console.log(temp);
+
+  res.json({
+    client_ip: ip,
+    location: "",
+    greeting: `Hello ${visitor_name}!, the temperature is ${c} degrees celcius in ${geo.city}`,
+  });
+});
 
 
 app.listen(PORT, () => {
