@@ -1,0 +1,19 @@
+{
+  "name": "simple-server",
+  "version": "0.0.1",
+  "description": "stage-zero-one project in HNG ",
+  "main": "index.js",
+  "scripts": {
+    "test": "yarn run start"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.2",
+    "express": "^4.19.2",
+    "geoip-lite": "^1.4.10"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
