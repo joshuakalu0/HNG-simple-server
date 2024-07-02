@@ -4,7 +4,7 @@
   "description": "stage-zero-one project in HNG ",
   "main": "index.js",
   "scripts": {
-   "start": "node index.js"
+   "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
