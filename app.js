@@ -1,7 +1,8 @@
-const axios = require("axios");
+//const axios = require("axios");
+const express = require('express');
 var geoip = require("geoip-lite");
 
-const express = require('express');
+
 
 const app = express()
 const PORT = 8000
@@ -18,10 +19,10 @@ app.get("/api/hello", async (req, res) => {
   console.log(geo);
   api_key = "a4f791ec3190105377dcfdf1cf72f27d";
   const url = `http://api.openweathermap.org/data/2.5/find?q=${geo.city}&appid=${api_key}`;
-  const response = await axios.get(url);
-  const { temp } = response.data.list[0].main;
-  const c = Math.round(Number(temp) - 273.15);
-
+//const response = await axios.get(url);
+  //const { temp } = response.data.list[0].main;
+ // const c = Math.round(Number(temp) - 273.15);
+const c =11
   console.log(temp);
 
   res.json({
