@@ -8,6 +8,7 @@ const app = express()
 const PORT = 8000
 
 app.get('/', (req, res) => {
+  console.log(req.ip)
   res.send('Hello World')
 })
 
@@ -15,7 +16,7 @@ app.get("/api/hello", async (req, res) => {
   const { visitor_name } = req.query;
 
   const test_ip = "207.97.227.239";
-  const geo = geoip.lookup(req.ip);
+  const geo = geoip.lookup(test_ip);
   console.log(geo);
   api_key = "a4f791ec3190105377dcfdf1cf72f27d";
   const url = `http://api.openweathermap.org/data/2.5/find?q=${geo.city}&appid=${api_key}`;
