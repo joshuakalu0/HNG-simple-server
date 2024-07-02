@@ -1,11 +1,11 @@
 //const axios = require("axios");
 const express = require('express');
-//const geoip = require("geoip-lite");
+const  satelize  = require('satelize');
 
 
 
 const app = express()
-const PORT = 8000
+const PORT = 800
 
 app.get('/', (req, res) => {
   const ip = req.header('x-forwarded-for') || req.connection.remoteAddress
@@ -15,8 +15,12 @@ app.get("/api/hello", async (req, res) => {
   const { visitor_name } = req.query;
 
   const ip = req.header('x-forwarded-for') || req.connection.remoteAddress
-  const geo = geoip.lookup(test_ip);
-  console.log(geo);
+satelize.satelize({ip:ip}, function(err, payload) {
+    
+      // res.send(payload);
+       res.json(payload)
+        });
+})
   api_key = "a4f791ec3190105377dcfdf1cf72f27d";
   const url = `http://api.openweathermap.org/data/2.5/find?q=${geo.city}&appid=${api_key}`;
 //const response = await axios.get(url);
@@ -25,11 +29,11 @@ app.get("/api/hello", async (req, res) => {
 const c =11
   console.log(temp);
 
-  res.json({
-    client_ip: ip,
-    location: "",
-    greeting: `Hello ${visitor_name}!, the temperature is ${c} degrees celcius in ${geo.city}`,
-  });
+  //res.json({
+    //client_ip: ip,
+   // location: "",
+    //greeting: `Hello ${visitor_name}!, the temperature is ${c} degrees celcius in ${geo.city}`,
+  //});
 });
 
 
