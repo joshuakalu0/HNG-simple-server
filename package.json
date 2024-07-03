@@ -12,6 +12,7 @@
     "axios": "^1.7.2",
     "express": "^4.19.2",
     "geoip-lite": "^1.4.10",
+    "geoip2-api": "^1.0.4",
     "satelize": "^0.2.0"
   },
   "devDependencies": {
