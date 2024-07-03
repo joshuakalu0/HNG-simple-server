@@ -10,8 +10,9 @@ const app = express()
 const PORT = 8000
 
 app.get('/', (req, res) => {
-  const url =`https://api.ipgeolocation.io/ipgeo?apiKey=55c05094273c478eb9b8a0fa42412c42&ip=2001:4860:4860::1`
   const ip = req.header('x-forwarded-for') || req.connection.remoteAddress
+  const url =`https://api.ipgeolocation.io/ipgeo?apiKey=55c05094273c478eb9b8a0fa42412c42&ip=${ip}`
+  
   axios.get(url).then(re=>res.json(re.data))
   //res.send(`Hello World your ip is:${ip}`)
 })
