@@ -1,7 +1,7 @@
 //const axios = require("axios");
 const express = require('express');
 const  satelize  = require('satelize')
-const geoip =require("geoip-lite")
+const geoip = require('geoip-lite');
 
 
 
@@ -27,7 +27,7 @@ satelize.satelize({ip:ip}, function(err, payload) {
 //const response = await axios.get(url);
   //const { temp } = response.data.list[0].main;
  // const c = Math.round(Number(temp) - 273.15)
- const data =geoip.lookup(ip);
+ //const data =geoip.lookup(ip);
 
 
   //res.json({
