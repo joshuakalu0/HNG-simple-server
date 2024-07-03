@@ -1,7 +1,7 @@
 //const axios = require("axios");
 const express = require('express');
 const  satelize  = require('satelize')
-const geoip = require('geoip-lite');
+//const geoip = require('geoip-lite');
 
 
 
