@@ -2,7 +2,7 @@
 const express = require('express');
 const  satelize  = require('satelize')
 //const geoip = require('geoip-lite');
-
+const geoIp = require('geoip2-api');
 
 
 const app = express()
