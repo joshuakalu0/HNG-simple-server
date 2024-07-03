@@ -33,7 +33,7 @@ app.get("/api/hello", (req, res) => {
       const c = Math.round(Number(temp) - 273.15)
       res.json({
     client_ip: ip,
-   location: `${geo.data.city} ${geo.data.state_prov}, ${geo.data.country_name}`,
+   location: `${geo.data.city}`,
     greeting: `Hello ${visitor_name}!, the temperature is ${c} degrees celcius in ${geo.city}`,
   });
       
