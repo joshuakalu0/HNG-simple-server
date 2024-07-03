@@ -1,16 +1,19 @@
 //const axios = require("axios");
+const { default: axios } = require('axios');
 const express = require('express');
 const  satelize  = require('satelize')
 //const geoip = require('geoip-lite');
-const geoIp = require('geoip2-api');
+
 
 
 const app = express()
 const PORT = 8000
 
 app.get('/', (req, res) => {
+  const url =`https://api.ipgeolocation.io/ipgeo?apiKey=55c05094273c478eb9b8a0fa42412c42&ip=2001:4860:4860::1`
   const ip = req.header('x-forwarded-for') || req.connection.remoteAddress
-  res.send(`Hello World your ip is:${ip}`)
+  axios.get(url).then(re=>res.json(re.data))
+  //res.send(`Hello World your ip is:${ip}`)
 })
 app.get("/api/hello", (req, res) => {
   const { visitor_name } = req.query;
