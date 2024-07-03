@@ -1,8 +1,7 @@
-//const axios = require("axios");
+
 const { default: axios } = require('axios');
 const express = require('express');
-const  satelize  = require('satelize')
-//const geoip = require('geoip-lite');
+
 
 
 
@@ -34,7 +33,7 @@ app.get("/api/hello", (req, res) => {
       res.json({
     client_ip: ip,
    location: `${geo.data.city}`,
-    greeting: `Hello ${visitor_name}!, the temperature is ${c} degrees celcius in ${geo.city}`,
+    greeting: `Hello ${visitor_name}!, the temperature is ${c} degrees celcius in ${geo.data.city}`,
   });
       
     })
